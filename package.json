@@ -1,0 +1,30 @@
+{
+  "author": {
+    "name": "Patrick Schaumburg",
+    "email": "info@p-schaumburg.de"
+  },
+  "name": "language-new-chef",
+  "homepage": "https://p-schaumburg.de",
+  "version": "1.0.0",
+  "description": "Chef snippet and grammar support",
+  "keywords": [
+    "language",
+    "grammar",
+    "ruby",
+    "chef",
+    "cookbook",
+    "resource",
+    "syntax",
+    "snippets"
+  ],
+  "repository": "https://github.com/pschaumburg/language-chef",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "readme": "# Language - Chef\n\nChef resources snippet and grammar support",
+  "readmeFilename": "README.md"
+}
