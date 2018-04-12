@@ -9,7 +9,7 @@ Integration for [Atom](https://atom.io/packages/)
 apm install language-new-chef
 ```
 
-Alternatively, open `Settings/Preferences -> Install` and search for `dash`.
+Alternatively, open `Settings/Preferences -> Install` and search for `language-new-chef`.
 
 ## License
 
