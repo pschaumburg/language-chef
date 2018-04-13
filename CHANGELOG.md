@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Fixing actions
+
 ## 1.0.1
 
 * Fixing guard_interpreter delimiter

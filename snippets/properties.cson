@@ -1,9 +1,9 @@
 '.source.chef':
   'action default properties':
-    'prefix': 'action'
+    'prefix': 'action default'
     'body': 'action :${1:nothing}'
   'action enabling properties':
-    'prefix': 'action'
+    'prefix': 'action enabling'
     'body': 'action [ :${1:enable}, :${2:start} ]'
   'group properties':
     'prefix': 'group'
