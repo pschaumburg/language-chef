@@ -1,7 +1,11 @@
+## 1.0.0
+
+* Adding properties for Chef resources
+
 ## 0.9.2
 
 * Fixing some tab issues
 
 ## 0.9.1
 
-* Initial Release of metadata.rb snippets
+* Initial release of metadata.rb snippets
