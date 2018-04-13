@@ -1,3 +1,8 @@
+## 1.0.1
+
+* Fixing guard_interpreter delimiter
+* Adding some more properties
+
 ## 1.0.0
 
 * Adding properties for Chef resources

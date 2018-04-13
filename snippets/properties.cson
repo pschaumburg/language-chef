@@ -1,7 +1,7 @@
 '.source.chef':
   'action default properties':
     'prefix': 'action'
-    'body': 'action ${1:nothing}'
+    'body': 'action :${1:nothing}'
   'action enabling properties':
     'prefix': 'action'
     'body': 'action [ :${1:enable}, :${2:start} ]'
@@ -25,7 +25,7 @@
     'body': 'provider Chef::Provider::${1:Package::Rubygems}\n'
   'retries properties':
     'prefix': 'retries'
-    'body': 'retries ${1:1}\n  retry_delay ${2:2}'
+    'body': 'retries ${1:1}\nretry_delay ${2:2}'
   'cwd properties':
     'prefix': 'cwd'
     'body': 'cwd \'${1:/myapp}\''
@@ -37,7 +37,7 @@
     'body': 'environment \'${1:JAVA_HOME}\' => \'${2:/usr/lib/java/jdk1.7/home}\''
   'guard_interpreter properties':
     'prefix': 'guard_interpreter'
-    'body': 'guard_interpreter :${1:bash}''
+    'body': 'guard_interpreter :${1:bash}'
   'path properties':
     'prefix': 'path'
     'body': 'path \'${1:/foo/bar}\''
@@ -56,3 +56,6 @@
   'subscribes properties':
     'prefix': 'subscribes'
     'body': 'subscribes :${1:restart}, \'${2:resource}[${3:name}]\', :${4:timer}'
+  'recursive properties':
+    'prefix': 'recursive'
+    'body': 'recursive ${1:true}'
