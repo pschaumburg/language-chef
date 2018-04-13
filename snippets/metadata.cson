@@ -4,7 +4,7 @@
     'body': "chef_version '${1:~>} ${2:12}'"
   'depends metadata':
     'prefix': 'depends'
-    'body': "depends '${1:apache2}', '${2:<} ${2:1.0}'"
+    'body': "depends '${1:apache2}', '${2:<} ${3:1.0}'"
   'description metadata':
     'prefix': 'description'
     'body': "description '${1:A fancy cookbook that manages a herd of cats!}'"
@@ -16,7 +16,7 @@
     'body': "issues_url '${1:https://github.com/chef-cookbooks/chef-client/issues}'"
   'license metadata':
     'prefix': 'license'
-    'body': "license '${1:Proprietary - All Rights Reserved}'"
+    'body': "license '${1:All Rights Reserved}'"
   'long_description metadata':
     'prefix': 'long_description'
     'body': "long_description ${1:IO.read(File.join(File.dirname(__FILE__), 'README.md'))}"
@@ -36,13 +36,13 @@
     'prefix': 'privacy'
     'body': "privacy"
   'provides metadata recipes':
-    'prefix': 'provides'
-    'body': "provides '${1:~>} ${0:cats::sleep}'"
+    'prefix': 'provides recipe'
+    'body': "provides '${1:cats::sleep}'"
   'provides metadata definitions':
-    'prefix': 'provides'
+    'prefix': 'provides definitions'
     'body': "provides '${1:here(:kitty, :time_to_eat)}'"
   'provides metadata resources':
-    'prefix': 'provides'
+    'prefix': 'provides resources'
     'body': "provides '${1:service[snuggle]}'"
   'recipe metadata':
     'prefix': 'recipe'
