@@ -7,6 +7,7 @@ Integration for [Atom](https://atom.io/packages/)
 
 based on chef-client Version **14.0.190**
 
+
 ## Installation
 
 ```
@@ -14,6 +15,10 @@ apm install language-new-chef
 ```
 
 Alternatively, open `Settings/Preferences -> Install` and search for `language-new-chef`.
+
+## Issues
+
+Create an issue within this GitHub Repository
 
 ## License
 

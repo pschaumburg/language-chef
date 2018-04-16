@@ -90,3 +90,78 @@
   'group':
     'prefix': 'group'
     'body': 'group \'${1:www-data}\' do\n  members [\'${2:maintenance}\', \'${3:clicron}\']\n  append ${4:false}\n  action :${5:create}\nend'
+### H ### CHECK
+  'homebrew_cask':
+    'prefix': 'homebrew_cask'
+    'body': 'homebrew_cask \'${1:name}\' do\n  action :${2:install}\nend'
+  'homebrew_package':
+    'prefix': 'homebrew_package'
+    'body': 'homebrew_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'homebrew_tap':
+    'prefix': 'homebrew_tap'
+    'body': 'homebrew_tap \'${1:name}\' do\n  action :${2:install}\nend'
+  'hostname':
+    'prefix': 'hostname'
+    'body': 'hostname \'${1:name}\' do\n  action :${2:set}\nend'
+  'http_request':
+    'prefix': 'http_request'
+    'body': 'http_request \'${1:some_message}\' do\n  url \'${2:http://example.com/check_in}\'\n  message ${3:{:some => \'data\'}.to_json}\n  action :${5:post}\nend'
+### I ### CHECK
+  'ifconfig':
+    'prefix': 'ifconfig'
+    'body': 'ifconfig \'${1:192.168.0.1}\' do\n  device \'${2:eth1}\'\n  action :${2:add}\nend'
+  'ips_package':
+    'prefix': 'ips_package'
+    'body': 'ips_package \'${1:name}\' do\n  action :${2:install}\nend'
+### K ### CHECK
+  'ksh':
+    'prefix': 'ksh'
+    'body': 'ksh \'${1:name}\' do\n  code <<-EOH\n  ${2:code}\n  EOH\n  action :${2:run}\nend'
+### L ### CHECK
+  'launchd':
+    'prefix': 'launchd'
+    'body': 'launchd \'${1:com.chef.every15}\' do\n  source \'${2:com.chef.every15.plist}\'\n  action :${3:create}\nend'
+  'link':
+    'prefix': 'link'
+    'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${2:/etc/passwd}\'\n  action :${3:create}\nend'
+  'log':
+    'prefix': 'log'
+    'body': 'log \'${1:name}\' do\n  message \'${2:This is the message that will be added to the log.}\'\n  action :${3:write}\nend'
+### M ### CHECK
+  'macos_userdefaults':
+    'prefix': 'macos_userdefaults'
+    'body': 'macos_userdefaults \'${1:name}\' do\n  domain \'${2:AppleKeyboardUIMode}\'\n  global ${3:true}\n  value \'${4:2}\'\n  action :${5:write}\nend'
+  'macports_package':
+    'prefix': 'macports_package'
+    'body': 'macports_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'mdadm':
+    'prefix': 'mdadm'
+    'body': 'mdadm \'${1:/dev/md0}\' do\n  devices [ ${2:\'/dev/sda\', \'/dev/sdb\'} ]\n  level ${3:0}\n  action :${4:create} ]\nend'
+  'mount':
+    'prefix': 'mount'
+    'body': 'mount \'${1:/mnt/volume1}\' do\n  device \'${2:volume1}\'\n  device_type :${4:label}\n  fstype \'${3:xfs}\'\n  options \'${4:rw}\'\n  action :${4:mount}\nend'
+  'msu_package':
+    'prefix': 'msu_package'
+    'body': 'msu_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.msu\'}\n  action :${3:install}\nend'
+### O ### CHECK
+  'ohai_hint':
+    'prefix': 'ohai_hint'
+    'body': 'ohai_hint \'${1:name}\' do\n  hint_name \'${2:custom}\n  content \'${3:test_content}\'\n  action :${4:create}\nend'
+  'ohai':
+    'prefix': 'ohai'
+    'body': 'ohai \'${1:reload_passwd}\' do\n  plugin \'${2:etc}\'\n  action :${3:reload}\nend'
+  'openbsd_package':
+    'prefix': 'openbsd_package'
+    'body': 'openbsd_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'openssl_dhparam':
+    'prefix': 'openssl_dhparam'
+    'body': 'openssl_dhparam \'${1:/etc/httpd/ssl/dhparam.pem}\' do\n  key_length ${4096}\n  action :${2:create}\nend'
+  'openssl_rsa_private_key_file':
+    'prefix': 'openssl_rsa_private_key_file'
+    'body': 'openssl_rsa_private_key_file \'${1:name}\' do\n  action :${2:create}\nend'
+  'openssl_rsa_public_key':
+    'prefix': 'openssl_rsa_public_key'
+    'body': 'openssl_rsa_public_key \'${1:/etc/example/key.pub}\' do\n  private_key_path \'/etc/example/key.pem\'\n  action :${2:install}\nend'
+  'osx_profile':
+    'prefix': 'osx_profile'
+    'body': 'osx_profile \'${1:name}\' do\n  profile \'${2:screensaver/com.company.screensaver.mobileconfig}\'\n  action :${3:install}\nend'

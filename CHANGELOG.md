@@ -1,10 +1,14 @@
+## 1.2.0
+
+* Adding resources from H-O
+
 ## 1.1.0
 
-- Adding resources from A-G
+* Adding resources from A-G
 
 ## 1.0.2
 
-- Fixing actions
+* Fixing actions
 
 ## 1.0.1
 
