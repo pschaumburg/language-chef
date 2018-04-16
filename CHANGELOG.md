@@ -1,3 +1,8 @@
+## 1.3.0
+
+* adding finally all resources
+* fixing more typos
+
 ## 1.2.2
 
 * fixing more typos in apt_package

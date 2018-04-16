@@ -3,9 +3,13 @@
 Simple integration of all [Chef](https://docs.chef.io/resource.html) resources used in metadata.rb
 Integration for [Atom](https://atom.io/packages/)
 
-## Current Version
+## Supporting
 
-based on chef-client Version **14.0.190**
+- metadata.rb resources
+- recipes resource
+- special things like Chef Cache Patch and more to come
+
+Based on chef-client Version **14.0.190**
 
 
 ## Installation
