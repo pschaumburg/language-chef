@@ -1,3 +1,7 @@
+## 1.2.1
+
+* fixing typo in apt_package
+
 ## 1.2.0
 
 * Adding resources from H-O
