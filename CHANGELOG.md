@@ -1,3 +1,7 @@
+## 1.3.1
+
+* fixing some bugs 
+
 ## 1.3.0
 
 * adding finally all resources

@@ -241,10 +241,10 @@
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/bash}\'\nend'
   'windows_ad_join':
     'prefix': 'windows_ad_join'
-    'body': 'windows_ad_join \'${1:ad.example.org}\' do\n  domain_user ${2:\'nick\'}\n  password \'${3:p@ssw0rd1\}'\n  action :${4:join}\nend'
+    'body': 'windows_ad_join \'${1:ad.example.org}\' do\n  domain_user ${2:\'nick\'}\n  password \'${3:p@ssw0rd1}\'\n  action :${4:join}\nend'
   'windows_auto_run':
     'prefix': 'windows_auto_run'
-    'body': 'windows_auto_run \'${1:BGINFO}\' do\n  program \'${2:C:/Sysinternals/bginfo.exe\}'\n  args \'${3:\'C:/Sysinternals/Config.bgi\' /NOLICPROMPT /TIMER:0\}'\n  action :${4:create}\nend'
+    'body': 'windows_auto_run \'${1:BGINFO}\' do\n  program \'${2:C:/Sysinternals/bginfo.exe}\'\n  args \'${3:\'C:/Sysinternals/Config.bgi\' /NOLICPROMPT /TIMER:0}\'\n  action :${4:create}\nend'
   'windows_env':
     'prefix': 'windows_env'
     'body': 'windows_env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
@@ -262,7 +262,7 @@
     'body': 'windows_path \'${1:C:\\Sysinternals}\' do\n  action :${2:add}\nend'
   'windows_printer':
     'prefix': 'windows_printer'
-    'body': 'windows_printer \'${1:HP LaserJet 5th Floor}\' do\n  driver_name \'${2:HP LaserJet 4100 Series PCL6\}'\n  ipv4_address \'${3:10.4.64.38}\'\n  action :${4:create}\nend'
+    'body': 'windows_printer \'${1:HP LaserJet 5th Floor}\' do\n  driver_name \'${2:HP LaserJet 4100 Series PCL6}\'\n  ipv4_address \'${3:10.4.64.38}\'\n  action :${4:create}\nend'
   'windows_printer_port':
     'prefix': 'windows_printer_port'
     'body': 'windows_printer_port \'${1:10.4.64.37}\' do\n  action :${2:create}\nend'
