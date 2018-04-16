@@ -1,6 +1,14 @@
+## 1.3.2
+
+* fix batch
+* fix powershell_script
+* fix ruby
+* fix systemd_unit
+* change README
+
 ## 1.3.1
 
-* fixing some bugs 
+* fixing some bugs
 
 ## 1.3.0
 
