@@ -16,7 +16,7 @@
     'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
   'batch':
     'prefix': 'batch'
-    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  7z.exe x #\{Chef::Config[:file_cache_path]\}\/ruby-1.8.7-p352-i386-mingw32.7z\n      -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\nend'
+    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  7z.exe x C:\\\\temp\\ruby-1.8.7-p352-i386-mingw32.7z\n    -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\nend'
   'bff_package':
     'prefix': 'bff_package'
     'body': 'bff_package \'${1:name}\' do\n  source \'${2:/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0}\'\n  action :${3:install}\nend'
@@ -166,7 +166,7 @@
     'body': 'powershell_package \'${1:xCertificate}\' do\n  version \'${2:1.1.0.0}\'\n  action :${3:install}\nend'
   'powershell_script':
     'prefix': 'powershell_script'
-    'body': 'powershell_script \'${1:read-env-var}\' do\n  cwd ${2:Chef::Config[:file_cache_path]}\n  code <<-EOH\n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()\n  EOH\nend'
+    'body': 'powershell_script \'${1:read-env-var}\' do\n  cwd ${2:C:\\\\temp}\n  code <<-EOH \n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()}\n  EOH\nend'
   'python':
     'prefix': 'python'
     'body': 'python \'${1:a python script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:print \"Hello world! From Chef and Python.\"}\n  EOH\n  action :${5:run}\nend'
@@ -202,7 +202,7 @@
     'body': 'rpm_package \'${1:name}\' do\n  action :${2:install}\nend'
   'ruby':
     'prefix': 'ruby'
-    'body': 'ruby \'${1:desc}\' do\n  cwd \'${2:/tmp}\'\n  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n    \nmv #{extract_path}/*/* #{extract_path}/\n    EOH\nend'
+    'body': 'ruby \'${1:desc}\' do\n  cwd \'${2:/tmp}\'\n  code <<-EOH\n    ${3:mkdir -p #{extract_path\\}\n    tar xzf #{src_filename\\} -C #{extract_path\\}\n    mv #{extract_path\\}/*/* #{extract_path\\}/}\n    EOH\nend'
   'ruby_block':
     'prefix': 'ruby_block'
     'body': 'ruby_block \'${1:desc}\' do\n  block do\n    ${2:Chef::Config.from_file(\"/etc/chef/client.rb\")}\n  end\n  action :${3:run}\nend'
@@ -232,7 +232,7 @@
     'body': 'sysctl \'${1:name}\' do\n  value ${2:1024}\n  action :${3:apply}\nend'
   'systemd_unit':
     'prefix': 'systemd_unit'
-    'body': 'systemd_unit \'${1:etcd.service}\' do\n  content(${2:Unit: {\n            Description: \'Etcd\',\n            Documentation: \'https://coreos.com/etcd\',\n            After: \'network.target\',\n          },\n          Service: {\n            Type: \'notify\',\n            ExecStart: \'/usr/local/etcd\',\n            Restart: \'always\',\n          },\n          Install: {\n            WantedBy: \'multi-user.target\',\n          })}\n  action :${3:create}\nend'
+    'body': 'systemd_unit \'${1:etcd.service}\' do\n  content(${2:Unit: {\n            Description: \'Etcd\',\n            Documentation: \'https://coreos.com/etcd\',\n            After: \'network.target\',\n          \\},\n          Service: {\n            Type: \'notify\',\n            ExecStart: \'/usr/local/etcd\',\n            Restart: \'always\',\n          \\},\n          Install: {\n            WantedBy: \'multi-user.target\',\n          \\}})\n  action :${3:create}\nend'
   'template':
     'prefix': 'template'
     'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
