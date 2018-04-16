@@ -1,3 +1,7 @@
+## 1.2.2
+
+* fixing more typos in apt_package
+
 ## 1.2.1
 
 * fixing typo in apt_package
