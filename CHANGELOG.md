@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Adding resources from A-G
+
 ## 1.0.2
 
 - Fixing actions

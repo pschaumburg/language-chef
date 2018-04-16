@@ -1,0 +1,92 @@
+'.source.chef':
+### A ### CHECK
+  'apt_package':
+    'prefix': 'apt_package'
+    'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\n  source '${3:/path/to/file.deb}'\nend'
+  'apt_preference':
+    'prefix': 'apt_preference'
+    'body': 'apt_preference \'${1:name}\' do\n  pin \'${2:version 5.1.49-3}\'\n  action :${3:add}\nend'
+  'apt_repository':
+    'prefix': 'apt_repository'
+    'body': 'apt_repository \'${1:nginx}\' do\n  uri \'${2:http://nginx.org/packages/ubuntu/}\'\n  components [${3:\'nginx\'}]\n  action :${4:add}\nend'
+  'apt_update':
+    'prefix': 'apt_update'
+    'body': 'apt_update \'${1:name}\' do\n  frequency ${2:86400}\n  action :${3:periodic}\nend'
+### B ### CHECK
+  'bash':
+    'prefix': 'bash'
+    'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+  'batch':
+    'prefix': 'batch'
+    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z\n      -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y\n    EOH\nend'
+  'bff_package':
+    'prefix': 'bff_package'
+    'body': 'bff_package \'${1:name}\' do\n  source \'${2:/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0}\'\n  action :${3:install}\nend'
+  'breakpoint':
+    'prefix': 'breakpoint' #check
+    'body': 'breakpoint \'${1:name}\' do\n  action :${2:break}\nend'
+### C ### CHECK
+  'cab_package':
+    'prefix': 'cab_package'
+    'body': 'cab_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.cab\'}\n  action :${3:install}\nend'
+  'chef_gem':
+    'prefix': 'chef_gem'
+    'body': 'chef_gem \'${1:name}\' do\n  compile_time ${2:false} \n  action :${3:install}\nend'
+  'chef_handler':
+    'prefix': 'chef_handler'
+    'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path to source}\'\n  arguments [${3:argument1, argument2}]\n  action :${4:enable}\nend'
+  'chocolatey_package':
+    'prefix': 'chocolatey_package'
+    'body': 'chocolatey_package \'${1:name}\' do\n  action :${3:install}\nend'
+  'cookbook_file':
+    'prefix': 'cookbook_file'
+    'body': 'cookbook_file \'${1:/tmp/filename.md}\' do\n  source \'${2:filename.md}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\n  action :${6:create}\nend'
+  'cron':
+    'prefix': 'cron'
+    'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${3:/bin/true}\'\nend'
+  'csh':
+    'prefix': 'csh'
+    'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+### D ### CHECK
+#  'deploy':
+#    'prefix': 'deploy'
+#    'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
+  'directory':
+    'prefix': 'directory'
+    'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive true\n  action :create\nend'
+#  'dmg_package':
+#    'prefix': 'dmg_package'
+#    'body': 'dmg_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'dnf_package':
+    'prefix': 'dnf_package'
+    'body': 'dnf_package \'${1:only-in-custom-repo}\' do\n  action :${2:install}\nend'
+  'dpkg_package':
+    'prefix': 'dpkg_package'
+    'body': 'dpkg_package \'${1:name}\' do\n  source \'${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}\'\n  action :${2:install}\nend'
+  'dsc_resource':
+    'prefix': 'dsc_resource'
+    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
+  'dsc_script':
+    'prefix': 'dsc_script'
+    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
+### E ### CHECK
+  'execute':
+    'prefix': 'execute'
+    'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend'
+### F ### CHECK
+  'file':
+    'prefix': 'file'
+    'body': 'file \'${1:/tmp/something}\' do\n  content \'${2:This is a placeholder}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0755}\'\n  action :${6:create}\nend'
+  'freebsd_package':
+    'prefix': 'freebsd_package'
+    'body': 'freebsd_package \'${1:name}\' do\n  action :${2:install}\nend'
+### G ### CHECK
+  'gem_package':
+    'prefix': 'gem_package'
+    'body': 'gem_package \'${1:gem}\' do\n  gem_binary \'${2:/opt/chef/embedded/bin/gem}\'\n  action :${3:install}\nend'
+  'git':
+    'prefix': 'git'
+    'body': 'git \'${1:/tmp/app_name}\' do\n  repository \'${2:git@github.com/whoami/project}\'\n  reference \'${3:master}\'\n  action :${4:sync}\nend'
+  'group':
+    'prefix': 'group'
+    'body': 'group \'${1:www-data}\' do\n  members [\'${2:maintenance}\', \'${3:clicron}\']\n  append ${4:false}\n  action :${5:create}\nend'
