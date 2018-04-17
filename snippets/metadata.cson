@@ -52,7 +52,7 @@
     'body': "source_url '${1:https://github.com/chef-cookbooks/chef-client}'"
   'supports metadata':
     'prefix': 'supports'
-    'body': "supports '${1:ubuntu}', '${2:>=} ${3:12.04}'"
+    'body': "supports '${1:ubuntu}', '${2:>=} ${3:14.04}'"
   'version metadata':
     'prefix': 'version'
     'body': "version '${0:2.0.0}'"
