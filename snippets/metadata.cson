@@ -31,7 +31,7 @@
     'body': "name '${1:cats}'"
   'ohai_version metadata':
     'prefix': 'ohai_version'
-    'body': "ohai_version \"${1:~>} ${2:8}\""
+    'body': "ohai_version \"${1:>=} ${2:13}\""
   'privacy metadata':
     'prefix': 'privacy'
     'body': "privacy"
