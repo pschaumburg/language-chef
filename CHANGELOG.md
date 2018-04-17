@@ -1,3 +1,7 @@
+## 1.5.1
+
+* properties showing up again
+
 ## 1.5.0
 
 * split detection for metadata.rb and other files
