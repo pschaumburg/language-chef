@@ -1,7 +1,7 @@
 '.source.chef.metadata':
   'chef_version metadata':
     'prefix': 'chef_version'
-    'body': "chef_version '${1:~>} ${2:12}'"
+    'body': "chef_version '${1:>=} ${2:13}'"
   'depends metadata':
     'prefix': 'depends'
     'body': "depends '${1:apache2}', '${2:<} ${3:1.0}'"
@@ -31,7 +31,7 @@
     'body': "name '${1:cats}'"
   'ohai_version metadata':
     'prefix': 'ohai_version'
-    'body': "ohai_version \"${1:~>} ${2:8}\""
+    'body': "ohai_version \"${1:>=} ${2:13}\""
   'privacy metadata':
     'prefix': 'privacy'
     'body': "privacy"
@@ -52,7 +52,7 @@
     'body': "source_url '${1:https://github.com/chef-cookbooks/chef-client}'"
   'supports metadata':
     'prefix': 'supports'
-    'body': "supports '${1:ubuntu}', '${2:>=} ${3:12.04}'"
+    'body': "supports '${1:ubuntu}', '${2:>=} ${3:14.04}'"
   'version metadata':
     'prefix': 'version'
     'body': "version '${0:2.0.0}'"
