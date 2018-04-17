@@ -1,3 +1,7 @@
+## 1.5.2
+
+* adding default actions to all resources
+
 ## 1.5.1
 
 * properties showing up again

@@ -13,10 +13,10 @@
     'body': 'apt_update \'${1:name}\' do\n  frequency ${2:86400}\n  action :${3:periodic}\nend'
   'bash':
     'prefix': 'bash'
-    'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+    'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\n  action :${4:run}\nend'
   'batch':
     'prefix': 'batch'
-    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  7z.exe x C:\\\\temp\\ruby-1.8.7-p352-i386-mingw32.7z\n    -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\nend'
+    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  7z.exe x C:\\\\temp\\ruby-1.8.7-p352-i386-mingw32.7z\n    -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\n  action :${3:run}\nend'
   'bff_package':
     'prefix': 'bff_package'
     'body': 'bff_package \'${1:name}\' do\n  source \'${2:/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0}\'\n  action :${3:install}\nend'
@@ -40,10 +40,10 @@
     'body': 'cookbook_file \'${1:/tmp/filename.md}\' do\n  source \'${2:filename.md}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\n  action :${6:create}\nend'
   'cron':
     'prefix': 'cron'
-    'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${4:/bin/true}\'\nend'
+    'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${4:/bin/true}\'\n  action :${5:create}\nend'
   'csh':
     'prefix': 'csh'
-    'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+    'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\n  action :${5:run}\nend'
   'deploy':
     'prefix': 'deploy'
     'body': 'deploy \'${1:private_repo}\' do\n  repo \'${2:git@github.com/acctname/project.git}\'\n  user \'${3:ubuntu}\'\n  deploy_to \'${4:/tmp/private_code}\'\n  ssh_wrapper \'${5:/tmp/private_code/wrap-ssh4git.sh}\'\n  action :${6:deploy}\nend'
@@ -61,10 +61,10 @@
     'body': 'dpkg_package \'${1:name}\' do\n  source \'${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}\'\n  action :${3:install}\nend'
   'dsc_resource':
     'prefix': 'dsc_resource'
-    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
+    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\n  action :${9:nothing}\nend'
   'dsc_script':
     'prefix': 'dsc_script'
-    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
+    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\n  action :${3:run}\nend'
   'execute':
     'prefix': 'execute'
     'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :${3:run}\nend'
@@ -163,7 +163,7 @@
     'body': 'paludis_package \'${1:name}\' do\n  action :${2:install}\nend'
   'perl':
     'prefix': 'perl'
-    'body': 'perl \'${1:a perl script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\nend'
+    'body': 'perl \'${1:a perl script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\n  action :${5:run}\nend'
   'portage_package':
     'prefix': 'portage_package'
     'body': 'portage_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -172,7 +172,7 @@
     'body': 'powershell_package \'${1:xCertificate}\' do\n  version \'${2:1.1.0.0}\'\n  action :${3:install}\nend'
   'powershell_script':
     'prefix': 'powershell_script'
-    'body': 'powershell_script \'${1:read-env-var}\' do\n  cwd ${2:C:\\\\temp}\n  code <<-EOH \n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()}\n  EOH\nend'
+    'body': 'powershell_script \'${1:read-env-var}\' do\n  cwd ${2:C:\\\\temp}\n  code <<-EOH \n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()}\n  EOH\n  action :${3:run}\nend'
   'python':
     'prefix': 'python'
     'body': 'python \'${1:a python script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:print \"Hello world! From Chef and Python.\"}\n  EOH\n  action :${5:run}\nend'
@@ -190,10 +190,10 @@
     'body': 'remote_file \'${1:var/www/customers/public_html/index.html}\' do\n  source \'${2:http://somesite.com/index.html}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0755}\'\n  action :${6:create}\nend'
   'rhsm_errata_level':
     'prefix': 'rhsm_errata_level'
-    'body': 'rhsm_errata_level \'${1:example_install_moderate}\' do\n  errata_level \'${2:moderate}\'\nend'
+    'body': 'rhsm_errata_level \'${1:example_install_moderate}\' do\n  errata_level \'${2:moderate}\'\n  action :${3:install}\nend'
   'rhsm_errata':
     'prefix': 'rhsm_errata'
-    'body': 'rhsm_errata \'${1:errata-install}\' do\n  errata_id \'${2:RHSA:2018-1234}\'\nend'
+    'body': 'rhsm_errata \'${1:errata-install}\' do\n  errata_id \'${2:RHSA:2018-1234}\'\n  action :${3:install}\nend'
   'rhsm_register':
     'prefix': 'rhsm_register'
     'body': 'rhsm_register \'${1:name}\' do\n  satellite_host \'${2:satellite.mycompany.com}\'\n  activation_key [ ${3:\'key1\', \'key2\'} ]\n  action :${4:register}\nend'
@@ -211,7 +211,7 @@
     'body': 'rpm_package \'${1:name}\' do\n  action :${2:install}\nend'
   'ruby':
     'prefix': 'ruby'
-    'body': 'ruby \'${1:desc}\' do\n  cwd \'${2:/tmp}\'\n  code <<-EOH\n    ${3:mkdir -p #{extract_path\\}\n    tar xzf #{src_filename\\} -C #{extract_path\\}\n    mv #{extract_path\\}/*/* #{extract_path\\}/}\n    EOH\nend'
+    'body': 'ruby \'${1:desc}\' do\n  cwd \'${2:/tmp}\'\n  code <<-EOH\n    ${3:mkdir -p #{extract_path\\}\n    tar xzf #{src_filename\\} -C #{extract_path\\}\n    mv #{extract_path\\}/*/* #{extract_path\\}/}\n    EOH\n  action :${4:run}\nend'
   'ruby_block':
     'prefix': 'ruby_block'
     'body': 'ruby_block \'${1:desc}\' do\n  block do\n    ${2:Chef::Config.from_file(\"/etc/chef/client.rb\")}\n  end\n  action :${3:run}\nend'
@@ -232,7 +232,7 @@
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
   'sudo':
     'prefix': 'sudo'
-    'body': 'sudo \'${1:passwordless-access}\' do\n  commands %{2:[\'systemctl restart httpd\', \'systemctl restart mysql\']}\n  nopasswd false\nend'
+    'body': 'sudo \'${1:passwordless-access}\' do\n  commands %{2:[\'systemctl restart httpd\', \'systemctl restart mysql\']}\n  nopasswd false\n  action :${3:create}\nend'
   'swap_file':
     'prefix': 'swap_file'
     'body': 'swap_file \'${1:/dev/sda1}\' do\n  size ${2:1024}\n  action :${3:create}\nend'
@@ -244,10 +244,10 @@
     'body': 'systemd_unit \'${1:etcd.service}\' do\n  content(${2:Unit: {\n            Description: \'Etcd\',\n            Documentation: \'https://coreos.com/etcd\',\n            After: \'network.target\',\n          \\},\n          Service: {\n            Type: \'notify\',\n            ExecStart: \'/usr/local/etcd\',\n            Restart: \'always\',\n          \\},\n          Install: {\n            WantedBy: \'multi-user.target\',\n          \\}})\n  action :${3:create}\nend'
   'template':
     'prefix': 'template'
-    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
+    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\n  action :${6:create}\nend'
   'user':
     'prefix': 'user'
-    'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/bash}\'\nend'
+    'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/bash}\'\n  action :${6:create}\nend'
   'windows_ad_join':
     'prefix': 'windows_ad_join'
     'body': 'windows_ad_join \'${1:ad.example.org}\' do\n  domain_user ${2:\'nick\'}\n  password \'${3:p@ssw0rd1}\'\n  action :${4:join}\nend'
@@ -256,7 +256,7 @@
     'body': 'windows_auto_run \'${1:BGINFO}\' do\n  program \'${2:C:/Sysinternals/bginfo.exe}\'\n  args \'${3:\'C:/Sysinternals/Config.bgi\' /NOLICPROMPT /TIMER:0}\'\n  action :${4:create}\nend'
   'windows_env':
     'prefix': 'windows_env'
-    'body': 'windows_env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
+    'body': 'windows_env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\n  action :${3:create}\nend'
   'windows_feature':
     'prefix': 'windows_feature'
     'body': 'windows_feature \'${1:DHCPServer}\' do\n  action :${2:install}\nend'
