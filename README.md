@@ -9,7 +9,7 @@ Integration for [Atom](https://atom.io/packages/)
 - recipes resource
 - special things like Chef Cache Patch and more to come
 
-Based on chef-client Version **14.0.190**
+Based on chef-client Version **14.0.202**
 
 ## ToDo
 
