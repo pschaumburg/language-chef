@@ -1,3 +1,7 @@
+## 1.5.0
+
+* split detection for metadata.rb and other files
+
 ## 1.4.0
 
 * adding deploy resource

@@ -1,4 +1,4 @@
-'.source.chef':
+'.source.chef.metadata':
   'chef_version metadata':
     'prefix': 'chef_version'
     'body': "chef_version '${1:~>} ${2:12}'"

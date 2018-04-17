@@ -1,4 +1,4 @@
-'.source.chef':
+'.source.chef.recipes':
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\n  source \'${3:/path/to/file.deb}\'\nend'
