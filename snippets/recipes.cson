@@ -44,9 +44,15 @@
   'csh':
     'prefix': 'csh'
     'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+  'deploy':
+    'prefix': 'deploy'
+    'body': 'deploy \'${1:private_repo}\' do\n  repo \'${2:git@github.com/acctname/project.git}\'\n  user \'${3:ubuntu}\'\n  deploy_to \'${4:/tmp/private_code}\'\n  ssh_wrapper \'${5:/tmp/private_code/wrap-ssh4git.sh}\'\n  action :${6:deploy}\nend'
   'directory':
     'prefix': 'directory'
     'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive ${5:true}\n  action :${6:create}\nend'
+  'dmg_package':
+    'prefix': 'dmg_package'
+    'body': 'dmg_package \'${1:name}\' do\n  source \'${2:https://packages.chef.io/files/stable/chefdk/2.5.3/mac_os_x/10.13/chefdk-2.5.3-1.dmg}\'\n  action :${3:install}\nend'
   'dnf_package':
     'prefix': 'dnf_package'
     'body': 'dnf_package \'${1:only-in-custom-repo}\' do\n  action :${2:install}\nend'
@@ -188,6 +194,9 @@
   'rhsm_errata':
     'prefix': 'rhsm_errata'
     'body': 'rhsm_errata \'${1:errata-install}\' do\n  errata_id \'${2:RHSA:2018-1234}\'\nend'
+  'rhsm_register':
+    'prefix': 'rhsm_register'
+    'body': 'rhsm_register \'${1:name}\' do\n  satellite_host \'${2:satellite.mycompany.com}\'\n  activation_key [ ${3:\'key1\', \'key2\'} ]\n  action :${4:register}\nend'
   'rhsm_repo':
     'prefix': 'rhsm_repo'
     'body': 'rhsm_repo \'${1:rhel-7-server-extras-rpms}\' do\n  action :${5:disable}\nend'
@@ -251,6 +260,12 @@
   'windows_feature':
     'prefix': 'windows_feature'
     'body': 'windows_feature \'${1:DHCPServer}\' do\n  action :${2:install}\nend'
+  'windows_feature_dism':
+    'prefix': 'windows_feature_dism'
+    'body': 'windows_feature_dism \'${1:name}\' do\n  all ${2:false}\n  source \'${3:localrepository}\'\n  action :${4:install}\nend'
+  'windows_feature_powershell':
+    'prefix': 'windows_feature_powershell'
+    'body': 'windows_feature_powershell \'${1:name}\' do\n  all ${2:false}\n  source \'${3:localrepository}\'\n  action :${4:install}\nend'
   'windows_font':
     'prefix': 'windows_font'
     'body': 'windows_font \'${1:name}\' do\n  source \'${2:https://example.com/Custom.otf}\'\n  action :${3:install}\nend'

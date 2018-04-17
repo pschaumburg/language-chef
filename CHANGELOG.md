@@ -1,3 +1,11 @@
+## 1.4.0
+
+* adding deploy resource
+* adding dmg_package resource
+* adding rhsm_register
+* adding windows_feature_dism
+* adding windows_feature_powershell
+
 ## 1.3.2
 
 * fix batch
