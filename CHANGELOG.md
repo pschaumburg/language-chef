@@ -1,6 +1,8 @@
 ## 1.6.0
 
 * adding funcionality to comment out in correct form with #
+* removed deploy due to deprecation
+* adding REMOVED.md for all removed resources, properties etc.
 * change README
 
 ## 1.5.2

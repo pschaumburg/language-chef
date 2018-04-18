@@ -11,6 +11,8 @@ Integration for [Atom](https://atom.io/packages/)
 
 Based on chef-client Version **14.0.202**
 
+Removed resources can be found in REMOVED.md
+
 ## Installation
 
 ```
@@ -22,14 +24,6 @@ Alternatively, open `Settings/Preferences -> Install` and search for `language-n
 ## Issues
 
 Create an issue within this GitHub Repository
-
-## ToDo
-
-- adding default actions to each resource
-- adding more properties with examples for easier
-- more special things in ruby syntax, which will be used more than once
-- refine Chef cookbook detection
-- more to come
 
 ## Contributing
 

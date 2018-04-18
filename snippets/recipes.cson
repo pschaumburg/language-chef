@@ -44,9 +44,6 @@
   'csh':
     'prefix': 'csh'
     'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\n  action :${5:run}\nend'
-  'deploy':
-    'prefix': 'deploy'
-    'body': 'deploy \'${1:private_repo}\' do\n  repo \'${2:git@github.com/acctname/project.git}\'\n  user \'${3:ubuntu}\'\n  deploy_to \'${4:/tmp/private_code}\'\n  ssh_wrapper \'${5:/tmp/private_code/wrap-ssh4git.sh}\'\n  action :${6:deploy}\nend'
   'directory':
     'prefix': 'directory'
     'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive ${5:true}\n  action :${6:create}\nend'
