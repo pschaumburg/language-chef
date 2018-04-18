@@ -1,6 +1,9 @@
 ## 1.6.0
 
 * adding funcionality to comment out in correct form with #
+* changed ohai_version autofill data
+* changed chef_version autofill data
+* changed supports autofill data
 * removed deploy due to deprecation
 * adding REMOVED.md for all removed resources, properties etc.
 * change README
