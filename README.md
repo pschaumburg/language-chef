@@ -42,7 +42,9 @@ Create an issue within this GitHub Repository
 
 Author:: Patrick Schaumburg (<info@p-schaumburg.de>)
 
+## Contributors
 
+* Tim Smith https://github.com/tas50
 
 ## License
 

@@ -1,6 +1,7 @@
 ## 1.6.0
 
 * adding funcionality to comment out in correct form with #
+* change README
 
 ## 1.5.2
 
