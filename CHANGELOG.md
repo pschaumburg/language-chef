@@ -1,3 +1,7 @@
+## 1.6.0
+
+* adding funcionality to comment out in correct form with #
+
 ## 1.5.2
 
 * adding default actions to all resources
