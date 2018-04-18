@@ -11,17 +11,6 @@ Integration for [Atom](https://atom.io/packages/)
 
 Based on chef-client Version **14.0.202**
 
-## ToDo
-
-- adding default actions to each resource
-- adding more properties with examples for easier
-- more special things in ruby syntax, which will be used more than once
-- refine Chef cookbook detection
-- more to come
-
-If you have any idea, don't hesitate to create an issue on GitHub!
-
-
 ## Installation
 
 ```
@@ -33,6 +22,27 @@ Alternatively, open `Settings/Preferences -> Install` and search for `language-n
 ## Issues
 
 Create an issue within this GitHub Repository
+
+## ToDo
+
+- adding default actions to each resource
+- adding more properties with examples for easier
+- more special things in ruby syntax, which will be used more than once
+- refine Chef cookbook detection
+- more to come
+
+## Contributing
+
+1. Fork the repository on Github
+2. Create a named feature branch (i.e. `add-new-resource`)
+3. Write your change
+4. Submit a Pull Request
+
+## Author
+
+Author:: Patrick Schaumburg (<info@p-schaumburg.de>)
+
+
 
 ## License
 
