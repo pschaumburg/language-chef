@@ -299,3 +299,12 @@
   'zypper_repository':
     'prefix': 'zypper_repository'
     'body': 'zypper_repository \'${1:Packman}\' do\n  baseurl \'http://packman.inode.at\'\n  path \'/suse/openSUSE_Leap_42.3\'\n  action :${3:add}\nend'
+  'platform?':
+    'prefix': 'platform?'
+    'body': 'platform?(\'${1:ubuntu}\')'
+  'platform_family?':
+    'prefix': 'platform_family?'
+    'body': 'platform_family?(\'${1:ubuntu}\')'
+  'include_recipe':
+    'prefix': 'include_recipe'
+    'body': 'include_recipe \'${1:example::recipe}\''
