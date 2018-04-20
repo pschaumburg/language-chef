@@ -7,7 +7,7 @@ Integration for [Atom](https://atom.io/packages/)
 
 - metadata.rb resources
 - recipes resource
-- special things like Chef Cache Patch and more to come
+- dsl helpers like chef cache path and platform?
 
 Based on chef-client Version **14.0.202**
 

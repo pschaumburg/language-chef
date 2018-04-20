@@ -1,3 +1,7 @@
+## 1.7.0
+
+* adding dsl helpers as new snippets
+
 ## 1.6.0
 
 * adding funcionality to comment out in correct form with #
