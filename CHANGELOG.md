@@ -1,3 +1,7 @@
+## 1.7.1
+
+* fixing usage of grammars for dsl helpers and properties
+
 ## 1.7.0
 
 * adding dsl helpers as new snippets
