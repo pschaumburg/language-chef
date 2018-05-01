@@ -10,7 +10,7 @@
     'body': "description '${1:A fancy cookbook that manages a herd of cats!}'"
   'gem metadata':
     'prefix': 'gem'
-    'body': "gem \"${1:poise}\""
+    'body': "gem '${1:poise}'"
   'issues_url metadata':
     'prefix': 'issues_url'
     'body': "issues_url '${1:https://github.com/johndoe/mycookbook/issues}'"
@@ -31,7 +31,7 @@
     'body': "name '${1:cats}'"
   'ohai_version metadata':
     'prefix': 'ohai_version'
-    'body': "ohai_version \"${1:>=} ${2:13}\""
+    'body': "ohai_version '${1:>=} ${2:13}'"
   'privacy metadata':
     'prefix': 'privacy'
     'body': "privacy"
