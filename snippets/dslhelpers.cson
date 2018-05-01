@@ -14,3 +14,12 @@
   'platform?':
      'prefix': 'platform? dslhelper'
      'body': 'platform?(\'${1:ubuntu}\')'
+  'reboot_pending?':
+     'prefix': 'reboot_pending? dslhelper'
+     'body': 'reboot_pending?'
+  'cookbook_name':
+     'prefix': 'cookbook_name dslhelper'
+     'body': 'cookbook_name'
+  'recipe_name':
+     'prefix': 'recipe_name dslhelper'
+     'body': 'recipe_name'
